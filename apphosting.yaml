@@ -9,53 +9,63 @@ runConfig:
 env:
   # Public environment variables (safe to expose)
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
-  - value: AIzaSyB2EnuIUdZdVc9UlJbRWJYIK_ORfikpW9w
+    value: AIzaSyB2EnuIUdZdVc9UlJbRWJYIK_ORfikpW9w
     availability:
       - BUILD
       - RUNTIME
+
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
-  - value: gammy-stories.firebaseapp.com
+    value: gammy-stories.firebaseapp.com
     availability:
       - BUILD
       - RUNTIME
+
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
-  - value: gammy-stories
+    value: gammy-stories
     availability:
       - BUILD
       - RUNTIME
+
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-  - value: gammy-stories.firebasestorage.app
+    value: gammy-stories.firebasestorage.app
     availability:
       - BUILD
       - RUNTIME
+
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
-  - value: 436850663510
+    value: "436850663510"
     availability:
       - BUILD
       - RUNTIME
+
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
-  - value: 1:436850663510:web:bfed1f3e4e8f4d7c123456
+    value: 1:436850663510:web:dfa8d16768cdcee782dbf7
     availability:
       - BUILD
       - RUNTIME
+
   - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    value: G-DKNGB30GVN
     availability:
       - BUILD
       - RUNTIME
-  
-  # Secret environment variables (stored securely)
+
+  # Secret environment variables (stored in Cloud Secret Manager)
   - variable: GEMINI_API_KEY
     secret: GEMINI_API_KEY
     availability:
       - RUNTIME
+
   - variable: FIREBASE_ADMIN_PROJECT_ID
     secret: FIREBASE_ADMIN_PROJECT_ID
     availability:
       - RUNTIME
+
   - variable: FIREBASE_ADMIN_CLIENT_EMAIL
     secret: FIREBASE_ADMIN_CLIENT_EMAIL
     availability:
       - RUNTIME
+
   - variable: FIREBASE_ADMIN_PRIVATE_KEY
     secret: FIREBASE_ADMIN_PRIVATE_KEY
     availability:
