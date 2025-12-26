@@ -9,26 +9,32 @@ runConfig:
 env:
   # Public environment variables (safe to expose)
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+  - value: AIzaSyB2EnuIUdZdVc9UlJbRWJYIK_ORfikpW9w
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+  - value: gammy-stories.firebaseapp.com
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+  - value: gammy-stories
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  - value: gammy-stories.firebasestorage.app
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+  - value: 436850663510
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+  - value: 1:436850663510:web:bfed1f3e4e8f4d7c123456
     availability:
       - BUILD
       - RUNTIME
