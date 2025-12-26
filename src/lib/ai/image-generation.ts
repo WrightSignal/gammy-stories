@@ -1,10 +1,17 @@
 import { GoogleGenAI } from "@google/genai";
 
-if (!process.env.GEMINI_API_KEY) {
-  throw new Error("GEMINI_API_KEY environment variable is not set");
-}
+// Lazy initialization to avoid build-time errors when env vars aren't available
+let genAI: GoogleGenAI | null = null;
 
-const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+function getGenAI(): GoogleGenAI {
+  if (!genAI) {
+    if (!process.env.GEMINI_API_KEY) {
+      throw new Error("GEMINI_API_KEY environment variable is not set");
+    }
+    genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  }
+  return genAI;
+}
 
 // Style presets for different reading levels
 const stylePresets: Record<string, string> = {
@@ -58,7 +65,7 @@ export async function generatePageImage(
   try {
     const prompt = buildImagePrompt(pageText, storyTitle, readingLevel, pageNumber);
 
-    const response = await genAI.models.generateContent({
+    const response = await getGenAI().models.generateContent({
       model: "gemini-2.0-flash-exp",
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       config: {
